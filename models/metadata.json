@@ -1,0 +1,188 @@
+{
+  "modelo": "HistGradientBoostingClassifier afinado con Optuna",
+  "fecha": "2026-11-07",
+  "features": [
+    "lead_time",
+    "stays_in_weekend_nights",
+    "stays_in_week_nights",
+    "adults",
+    "children",
+    "babies",
+    "is_repeated_guest",
+    "previous_cancellations",
+    "previous_bookings_not_canceled",
+    "booking_changes",
+    "days_in_waiting_list",
+    "adr",
+    "total_of_special_requests",
+    "has_agent",
+    "has_company",
+    "hotel",
+    "meal",
+    "country",
+    "market_segment",
+    "distribution_channel",
+    "reserved_room_type",
+    "deposit_type",
+    "customer_type",
+    "agent",
+    "arrival_date_month",
+    "arrival_dow"
+  ],
+  "numeric_features": [
+    "lead_time",
+    "stays_in_weekend_nights",
+    "stays_in_week_nights",
+    "adults",
+    "children",
+    "babies",
+    "is_repeated_guest",
+    "previous_cancellations",
+    "previous_bookings_not_canceled",
+    "booking_changes",
+    "days_in_waiting_list",
+    "adr",
+    "total_of_special_requests",
+    "has_agent",
+    "has_company"
+  ],
+  "nominal_features": [
+    "hotel",
+    "meal",
+    "country",
+    "market_segment",
+    "distribution_channel",
+    "reserved_room_type",
+    "deposit_type",
+    "customer_type",
+    "agent",
+    "arrival_date_month",
+    "arrival_dow"
+  ],
+  "prohibidas": [
+    "reservation_status",
+    "reservation_status_date",
+    "assigned_room_type",
+    "room_changed",
+    "required_car_parking_spaces"
+  ],
+  "hiperparametros": {
+    "learning_rate": 0.047816477318877774,
+    "max_iter": 501,
+    "max_leaf_nodes": 48,
+    "l2_regularization": 0.05407528024961708,
+    "min_samples_leaf": 11
+  },
+  "metricas_test": {
+    "roc_auc": 0.8976,
+    "pr_auc": 0.777,
+    "umbral_max_f1": 0.37,
+    "f1": 0.7096,
+    "umbral_recall_80": 0.31
+  },
+  "prevalencia_train": 0.2752,
+  "n_train": 65422,
+  "n_test": 21808,
+  "ejemplos_categorias": {
+    "hotel": [
+      "City Hotel",
+      "Resort Hotel"
+    ],
+    "meal": [
+      "BB",
+      "FB",
+      "HB",
+      "SC"
+    ],
+    "country": [
+      "ABW",
+      "AGO",
+      "AIA",
+      "ALB",
+      "AND",
+      "ARE",
+      "ARG",
+      "ARM",
+      "ATA",
+      "ATF",
+      "AUS",
+      "AUT"
+    ],
+    "market_segment": [
+      "Aviation",
+      "Complementary",
+      "Corporate",
+      "Direct",
+      "Groups",
+      "Offline TA/TO",
+      "Online TA",
+      "Undefined"
+    ],
+    "distribution_channel": [
+      "Corporate",
+      "Direct",
+      "GDS",
+      "TA/TO",
+      "Undefined"
+    ],
+    "reserved_room_type": [
+      "A",
+      "B",
+      "C",
+      "D",
+      "E",
+      "F",
+      "G",
+      "H",
+      "L"
+    ],
+    "deposit_type": [
+      "No Deposit",
+      "Non Refund",
+      "Refundable"
+    ],
+    "customer_type": [
+      "Contract",
+      "Group",
+      "Transient",
+      "Transient-Party"
+    ],
+    "agent": [
+      "1",
+      "10",
+      "103",
+      "104",
+      "105",
+      "106",
+      "107",
+      "11",
+      "110",
+      "111",
+      "112",
+      "115"
+    ],
+    "arrival_date_month": [
+      "April",
+      "August",
+      "December",
+      "February",
+      "January",
+      "July",
+      "June",
+      "March",
+      "May",
+      "November",
+      "October",
+      "September"
+    ],
+    "arrival_dow": [
+      "Friday",
+      "Monday",
+      "Saturday",
+      "Sunday",
+      "Thursday",
+      "Tuesday",
+      "Wednesday"
+    ]
+  }
+}

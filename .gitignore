@@ -1,0 +1,19 @@
+# Python
+__pycache__/
+*.pyc
+.pytest_cache/
+.ipynb_checkpoints/
+.venv/
+
+# Fuera de la entrega (quedan solo en la copia local):
+# material del curso (propiedad del profesor)
+documentacion/
+# paquete de procedimiento usado para desarrollar el trabajo y archivos de Claude Code
+ds-skills/
+.claude/
+CLAUDE.md
+tools/registrar_skills.ps1
+
+# Temporales
+*.log
+*.tmp

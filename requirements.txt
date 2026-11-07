@@ -1,0 +1,14 @@
+# Entorno usado: Python 3.15 (funciona con 3.11+). Instalar con: pip install -r requirements.txt
+pandas>=2.2
+numpy>=1.26
+scikit-learn>=1.5
+matplotlib>=3.8
+seaborn>=0.13
+shap>=0.46
+optuna>=3.6
+joblib>=1.4
+# notebook
+ipykernel
+nbformat
+nbconvert
+# Despliegue (pendiente, ver Despliegue_FastAPI.ipynb): fastapi uvicorn httpx
