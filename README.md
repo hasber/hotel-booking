@@ -2,8 +2,6 @@
 
 Caso resuelto de principio a fin sobre el dataset público *Hotel Booking Demand* (Antonio, Almeida & Nunes, 2019), por etapas: entendimiento del problema, perfilado, limpieza, EDA, modelado, verificación y traspaso. Pregunta: **¿qué características de la reserva, del cliente, del canal y de las condiciones están asociadas con la cancelación y cuáles la predicen?** Objetivo operativo: identificar las reservas/clientes con más posibilidades de cancelar.
 
-Entrega para la Especialización (Universidad de Medellín / Comfama). Avance: 11 de noviembre · Entrega final y sustentación (20 min + 5 de preguntas): 25 de noviembre.
-
 ## Estructura del repositorio
 
 ```
