@@ -1,0 +1,80 @@
+{
+  "autor": "Juan",
+  "ejecutado_utc": "2026-11-11T19:40:07.303407+00:00",
+  "python": "3.13.17",
+  "versiones": {
+    "pandas": "3.1.1",
+    "numpy": "2.5.4",
+    "scikit-learn": "1.9.1",
+    "matplotlib": "3.11.2"
+  },
+  "sha256_csv_original": "d10cdeb07de9309007f528d6499a2c0467ae7a6b287b80ffd759e11e61801639",
+  "semilla": 42,
+  "filas_originales": 119390,
+  "filas_limpias": 87230,
+  "adr_convertidos_a_nulo": 2,
+  "variables": [
+    "lead_time",
+    "stays_in_weekend_nights",
+    "stays_in_week_nights",
+    "adults",
+    "children",
+    "babies",
+    "is_repeated_guest",
+    "previous_cancellations",
+    "previous_bookings_not_canceled",
+    "adr",
+    "hotel",
+    "meal",
+    "country",
+    "market_segment",
+    "distribution_channel",
+    "reserved_room_type",
+    "deposit_type",
+    "customer_type",
+    "mes_llegada",
+    "dia_semana_llegada"
+  ],
+  "exclusiones_conservadoras": [
+    "reservation_status",
+    "reservation_status_date",
+    "assigned_room_type",
+    "required_car_parking_spaces",
+    "booking_changes",
+    "days_in_waiting_list",
+    "total_of_special_requests"
+  ],
+  "modelo_seleccionado": "Random_Forest",
+  "criterio_modelo": "Mayor Average Precision en validación",
+  "criterio_umbral": "Máximo F1 en validación",
+  "umbral": 0.21000000000000002,
+  "metricas_test": {
+    "roc_auc": 0.7454532106004222,
+    "average_precision": 0.5696874923598307,
+    "precision": 0.465743698970536,
+    "recall": 0.7789432020581832,
+    "f1": 0.5829383886255924,
+    "accuracy": 0.6439161635001422,
+    "porcentaje_alertas": 53.43154300888313
+  },
+  "particiones": [
+    {
+      "conjunto": "train",
+      "filas": 32817,
+      "desde": "2015-07-01",
+      "hasta": "2016-06-30"
+    },
+    {
+      "conjunto": "validacion",
+      "filas": 22780,
+      "desde": "2016-07-01",
+      "hasta": "2016-12-31"
+    },
+    {
+      "conjunto": "test",
+      "filas": 31633,
+      "desde": "2017-01-01",
+      "hasta": "2017-08-31"
+    }
+  ]
+}
