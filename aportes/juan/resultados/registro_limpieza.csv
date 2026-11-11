@@ -1,0 +1,3 @@
+﻿paso,filas_antes,filas_despues,filas_eliminadas,criterio
+Eliminar duplicados exactos,119390,87396,31994,Supuesto de trabajo; sin ID no se distingue duplicado de reserva idéntica.
+Eliminar reservas con cero huéspedes conocidos,87396,87230,166,Suma adults + children + babies igual a cero.
