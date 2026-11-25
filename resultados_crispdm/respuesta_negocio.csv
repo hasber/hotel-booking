@@ -1,0 +1,6 @@
+Característica,Grupo,Reservas,Tasa cancelación,Posible uso
+Antecedentes de cancelación,Sí,5809,0.9666035462213807,Revisar si existe historial de cancelaciones.
+Anticipación,181-365,7930,0.6459016393442623,Observar las reservas hechas con bastante anticipación.
+Segmento comercial,Groups,10389,0.6185388391568004,Comparar el seguimiento entre segmentos.
+Tipo de hotel,City Hotel,31623,0.4166271384751605,No asumir que ambos tipos de hotel tienen igual comportamiento.
+Canal de distribución,TA/TO,39824,0.3963188027320209,Revisar el comportamiento por canal.

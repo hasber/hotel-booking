@@ -1,27 +1,24 @@
-# Cancelación de reservas de hotel — proyecto de ciencia de datos
+# Proyecto 1 · Cancelaciones hoteleras
 
-Caso resuelto de principio a fin sobre el dataset público *Hotel Booking Demand* (Antonio, Almeida & Nunes, 2019), por etapas: entendimiento del problema, perfilado, limpieza, EDA, modelado, verificación y traspaso. Pregunta: **¿qué características de la reserva, del cliente, del canal y de las condiciones están asociadas con la cancelación y cuáles la predicen?** Objetivo operativo: identificar las reservas/clientes con más posibilidades de cancelar.
+¿Qué tienen en común las reservas que más se cancelan? ¿Podemos anticiparlas? Proyecto de ciencia de datos sobre el dataset público *Hotel Booking Demand* (119.390 reservas de dos hoteles, 2015–2017), siguiendo la metodología CRISP-DM: comprensión del negocio, comprensión de los datos, preparación, modelado y evaluación.
 
-## Estructura del repositorio
+Variable objetivo: `is_canceled` (1 = cancelada, 0 = no cancelada). Problema de clasificación binaria.
 
-```
-Trabajo.ipynb                      notebook principal, ejecutado: entendimiento del problema → perfilado →
-                                   limpieza → EDA → modelo → verificación → qué reportar
-Despliegue_FastAPI.ipynb           plan del despliegue del modelo (pendiente de aplicar; no ejecutado)
-hotel_bookings.csv                 dato crudo (119.390 reservas)
-data/hotel_bookings_limpio.csv     dataset preparado (87.230 filas), fuente del modelado
-models/                            modelo final entrenado (joblib) y metadata (features, umbrales, métricas)
-docs/avance_11_noviembre.md        estado del proyecto para la sesión de avances
-docs/contexto_dataset.md           qué es una fila, target, variables prohibidas, calidad (skill 01)
-docs/contexto_proyecto.md          documento de traspaso con todas las cifras (skill 07)
-docs/registro_feedback.md          retroalimentación recibida y cambios aplicados (skill 07)
-docs/base_conocimiento_materia.md  conceptos del curso → dónde se aplican en el proyecto
-docs/perfil_hotel_bookings.md      informe automático de perfilado
-tools/build_trabajo.py             generador reproducible de Trabajo.ipynb
-tools/build_despliegue.py          generador de Despliegue_FastAPI.ipynb
-tools/psi_drift.py                 PSI (Population Stability Index) por variable entre dos periodos; lo usa el notebook en 7.4
-requirements.txt                   librerías necesarias
-```
+## Entrega principal
+
+| Archivo | Qué es |
+|---|---|
+| `Notebook_Analisis_CRISP_DM_Hotel.ipynb` | Notebook principal, ejecutado: exploración, preparación, comparación de tres modelos, evaluación en un periodo posterior, escenarios de uso y conclusiones |
+| `docs/Documentación_notebook_CRISP_DM_Hotel.md` | Informe de apoyo con la explicación ampliada de cada decisión y resultado |
+| `resultados_crispdm/` | Tablas que exporta el notebook: particiones, comparación de modelos, evaluación en prueba, regla básica, escenarios de seguimiento, perfiles e importancias |
+| `presentacion/` | Presentación de la sustentación (pptx y pdf, 16 diapositivas, 20 minutos) |
+| `hotel_bookings.csv` | Datos originales |
+
+## Resultado en breve
+- La tasa de cancelación crece con la anticipación (de 9,6 % con 0–7 días a 67,7 % con más de 365) y es mucho mayor en reservas con cancelaciones previas (91,6 %), en el segmento Groups (61,1 %) y en el City Hotel (41,7 %). Son asociaciones, no causas.
+- Con partición temporal (entrenamiento hasta junio de 2016, validación segundo semestre de 2016, prueba 2017), Random Forest obtuvo el mejor F1 de validación (0,611) con umbral 0,25. En prueba: F1 0,624, recall 89,25 %, precisión 47,99 %, ROC-AUC 0,699.
+- Una regla básica que siempre predice "no se cancela" tiene más exactitud (61,3 % frente a 58,4 %) pero no detecta ninguna cancelación: por eso no se elige por exactitud.
+- Si el hotel solo revisara el 10 % de reservas de mayor riesgo, encontraría el 17 % de las cancelaciones con una tasa de acierto del 67 %.
 
 ## Reproducir
 
@@ -29,15 +26,14 @@ requirements.txt                   librerías necesarias
 pip install -r requirements.txt
 ```
 
-```bash
-python tools/build_trabajo.py
-```
+Abrir `Notebook_Analisis_CRISP_DM_Hotel.ipynb` y ejecutarlo desde la primera celda con `hotel_bookings.csv` en la misma carpeta (o por consola: `python -m jupyter nbconvert --execute --to notebook --inplace Notebook_Analisis_CRISP_DM_Hotel.ipynb`). Semilla 42; escribe `resultados_crispdm/`.
 
-```bash
-python -m jupyter nbconvert --execute --to notebook --inplace Trabajo.ipynb --ExecutePreprocessor.timeout=1800
-```
+## Aportes individuales
+Versiones previas y análisis complementarios de cada integrante, con sus propios protocolos (no comparables directamente con el principal):
 
-Ejecución completa ≈ 6 minutos (Python 3.11+; resultados deterministas con `RANDOM_STATE = 42`). El notebook escribe `data/hotel_bookings_limpio.csv` y `models/`.
+| Carpeta | Autor | Enfoque |
+|---|---|---|
+| `aportes/hasber/` | Hasber Malpica | Flujo por etapas con deduplicación, 26 variables, Gradient Boosting, verificación de fuga y drift |
+| `aportes/juan/` | Juan Monterrosa | Partición temporal train/validación/test con deduplicación, Random Forest elegido por Average Precision |
 
-## Resultado en una línea
-Gradient Boosting afinado: ROC-AUC 0,898 en test; el 10 % de reservas con mayor riesgo predicho se cancela en el 87 % de los casos; variables clave: país de origen, agencia, anticipación, segmento y peticiones especiales. Sin fuga (verificado); drift temporal real (AUC 0,837 al predecir 2017 con 2015–2016). Lenguaje de asociación, no causalidad.
+Cada carpeta tiene su README con instrucciones.

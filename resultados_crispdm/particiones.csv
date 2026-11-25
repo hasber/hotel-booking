@@ -1,0 +1,4 @@
+conjunto,reservas,tasa_cancelacion
+Entrenamiento,49157,0.35773135057062067
+Validación,29546,0.3687131929872064
+Prueba,40687,0.38697864182662767
